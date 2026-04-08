@@ -1488,6 +1488,48 @@ window.onload = function () {
   }
 };
 
+function downloadQR() {
+  // Trouver le canvas ou l'image contenant le code QR généré
+  var qrContainer = document.getElementById("qrcode");
+  var qrCanvas = qrContainer.querySelector("canvas");
+  var qrImg = qrContainer.querySelector("img");
+  
+  var imageURI;
+  // easy.qrcode génère souvent un canvas, ou une image selon le navigateur
+  if (qrCanvas) {
+      imageURI = qrCanvas.toDataURL("image/png");
+  } else if (qrImg && qrImg.src) {
+      imageURI = qrImg.src;
+  } else {
+      alert("Le code QR n'est pas encore généré.");
+      return;
+  }
+
+  // Récupérer le numéro de l'équipe
+  var teamInput = document.getElementById("input_t");
+  var team = (teamInput && teamInput.value !== "") ? teamInput.value : "Inconnu";
+  var fileName = "";
+  
+  // Construire le nom de fichier selon le type de scouting
+  if (pitScouting) {
+      fileName = "Scouting_Pit_Equipe_" + team + ".png";
+  } else {
+      var eventInput = document.getElementById("input_e");
+      var matchInput = document.getElementById("input_m");
+      var eventName = (eventInput && eventInput.value !== "") ? eventInput.value : "Event";
+      var matchNum = (matchInput && matchInput.value !== "") ? matchInput.value : "X";
+      
+      fileName = "Scouting_Match_" + eventName + "_M" + matchNum + "_Equipe_" + team + ".png";
+  }
+
+  // Créer un lien temporaire pour forcer le téléchargement
+  var link = document.createElement("a");
+  link.href = imageURI;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 
 
