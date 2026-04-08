@@ -15,7 +15,7 @@ var config_data = `
     { "name": "Événement",
       "code": "e",
       "type": "event",
-      "defaultValue": "2026ilch",
+      "defaultValue": "QCMO",
       "required": "true"
     },
     { "name": "Niveau du Match",
