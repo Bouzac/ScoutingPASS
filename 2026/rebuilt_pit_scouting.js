@@ -5,21 +5,21 @@ var config_data = `
   "page_title": "REBUILT",
   "pitConfig": "true",
   "prematch": [
-    { "name": "Team Number",
+    { "name": "Numéro d'équipe",
       "code": "t",
       "type": "number"
     },
-    { "name": "Width",
+    { "name": "Longueur",
       "code": "wid",
       "type": "number",
       "defaultValue": "0"
     },
-    { "name": "Weight",
+    { "name": "Largeur",
       "code": "wei",
       "type": "number",
       "defaultValue": "0"
     },
-    { "name": "Drivetrain",
+    { "name": "Base Pilotable",
       "code": "drv",
       "type": "radio",
       "choices": {
@@ -27,17 +27,17 @@ var config_data = `
         "w": "West Coast/Tank<br>",
         "b": "Butterfly/Grashopper<br>",
         "m": "Mechanum<br>",
-        "o": "Other"
+        "o": "Autre"
       },
       "defaultValue": "o"
     },
-    { "name": "Other Drivetrain",
+    { "name": "Autre Base",
       "code": "odt",
       "type": "text",
       "size": 20,
       "maxSize": 50
     },
-    { "name": "Swerve Ratio",
+    { "name": "Ratio de Swerve",
       "code": "sr",
       "type": "radio",
       "choices": {
@@ -45,35 +45,35 @@ var config_data = `
         "2": "L2 (6.75:1)<br>",
         "3": "L3 (6.12:1)<br>",
         "4": "L4 (5.14:1)<br>",
-        "o": "Other ratio (put in comments)<br>",
-        "x": "Not Swerve"
+        "o": "Autre Ratio (dans les commentaires)<br>",
+        "x": "Pas des Swerves"
       },
       "defaultValue":"x"
     },
-    { "name": "Drivetrain Motor",
+    { "name": "Moteur Base Pilotable",
       "code": "mot",
       "type": "radio",
       "choices": {
         "n": "Neo<br>",
         "f": "Falcon<br>",
         "c": "CIM<br>",
-        "x": "Other<br>"
+        "x": "Autre<br>"
       },
       "defaultValue":"x"
     },
-    { "name": "# of Batteries",
+    { "name": "# de Batteries",
       "code": "nob",
       "type": "number"
     },
-    { "name": "Floor pickup Fuel",
+    { "name": "Floor Fuel",
       "code": "fpu",
       "type": "bool"
     },
-    { "name": "Depot pickup Fuel",
+    { "name": "Depot Fuel",
       "code": "dpu",
       "type": "bool"
     },
-    { "name": "Outpost pickup Fuel",
+    { "name": "Outpost Fuel",
       "code": "opu",
       "type": "bool"
     },
@@ -83,13 +83,7 @@ var config_data = `
       "size": 20,
       "maxSize": 250
     },
-    { "name": "Scouting Method /<br>Program (ScoutingPASS?)",
-      "code": "sct",
-      "type": "text",
-      "size": 20,
-      "maxSize": 250
-    },
-    { "name": "Comments",
+    { "name": "Commentaires",
       "code": "co",
       "type": "text",
       "size": 20,
