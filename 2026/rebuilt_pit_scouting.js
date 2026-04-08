@@ -9,13 +9,13 @@ var config_data = `
       "code": "t",
       "type": "number"
     },
-    { "name": "Longueur",
-      "code": "wid",
+    { "name": "Poids (lbs)",
+      "code": "wei",
       "type": "number",
       "defaultValue": "0"
     },
-    { "name": "Largeur",
-      "code": "wei",
+    { "name": "Hauteur (pouces)",
+      "code": "hgt",
       "type": "number",
       "defaultValue": "0"
     },
@@ -25,7 +25,6 @@ var config_data = `
       "choices": {
         "s": "Swerve<br>",
         "w": "West Coast/Tank<br>",
-        "b": "Butterfly/Grashopper<br>",
         "m": "Mechanum<br>",
         "o": "Autre"
       },
@@ -37,47 +36,33 @@ var config_data = `
       "size": 20,
       "maxSize": 50
     },
-    { "name": "Ratio de Swerve",
-      "code": "sr",
+    { "name": "Type de Ramassage (Intake)",
+      "code": "itk",
       "type": "radio",
       "choices": {
-        "1": "L1 (8.14:1)<br>",
-        "2": "L2 (6.75:1)<br>",
-        "3": "L3 (6.12:1)<br>",
-        "4": "L4 (5.14:1)<br>",
-        "o": "Autre Ratio (dans les commentaires)<br>",
-        "x": "Pas des Swerves"
+        "i": "Interne (protégé)<br>",
+        "e": "Externe (exposé)<br>",
+        "n": "Aucun"
       },
-      "defaultValue":"x"
-    },
-    { "name": "Moteur Base Pilotable",
-      "code": "mot",
-      "type": "radio",
-      "choices": {
-        "n": "Neo<br>",
-        "f": "Falcon<br>",
-        "c": "CIM<br>",
-        "x": "Autre<br>"
-      },
-      "defaultValue":"x"
+      "defaultValue":"i"
     },
     { "name": "# de Batteries",
       "code": "nob",
       "type": "number"
     },
-    { "name": "Floor Fuel",
+    { "name": "Ramasse au sol (Floor)",
       "code": "fpu",
       "type": "bool"
     },
-    { "name": "Depot Fuel",
+    { "name": "Prend au Dépôt",
       "code": "dpu",
       "type": "bool"
     },
-    { "name": "Outpost Fuel",
+    { "name": "Prend à l'Avant-poste",
       "code": "opu",
       "type": "bool"
     },
-    { "name": "Autos",
+    { "name": "Autos (Qu'est-ce qu'ils font?)",
       "code": "aut",
       "type": "text",
       "size": 20,
@@ -98,4 +83,5 @@ var config_data = `
   ],
   "postmatch": [
   ]
-}`;
+}
+`;
