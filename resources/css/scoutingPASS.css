@@ -118,15 +118,23 @@ tr {
    5. CHAMPS JS, BOUTONS DE SAISIE ET IMAGE
    ========================================= */
 .field-image-src {
-    border-radius: 12px;
+    border-radius: 8px;
     border: 2px solid rgba(0,0,0,0.2);
-    width: 85vw; 
-    max-width: 500px;
+    
+    /* On utilise 100% de la cellule au lieu de vw pour ne pas fausser le calcul X/Y du JS */
+    width: 100%; 
+    max-width: 450px;
     height: auto;
-    max-height: 40dvh; /* Grande image autorisée car la zone glisse */
-    object-fit: contain;
-    margin-bottom: 1.5dvh;
+    margin: 1dvh auto;
+    display: block;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* CRUCIAL POUR L'IPAD : On force la réactivation complète du tactile et des clics sur cette image */
+    pointer-events: auto !important;
+    touch-action: auto !important; 
+    -webkit-user-select: auto !important;
+    user-select: auto !important;
+    -webkit-touch-callout: none;
 }
 
 input[type="number"], 
@@ -140,6 +148,10 @@ select {
     color: #000;
     text-align: center;
     min-width: 70px;
+    
+    /* On réactive la sélection pour les champs textes/nombres par sécurité */
+    -webkit-user-select: auto;
+    user-select: auto;
 }
 
 .undoButton, .flipButton, .half-button-l, .half-button-r {
@@ -154,11 +166,12 @@ select {
     transition: transform 0.1s;
     box-shadow: 0 2px 5px rgba(0,122,255,0.3);
 }
+
 .undoButton:active, .flipButton:active, .half-button-l:active, .half-button-r:active {
     transform: scale(0.92);
 }
 
-.half-button-container { display: flex; gap: 12px; align-items: center; }
+.half-button-container { display: flex; gap: 12px; align-items: center; justify-content: center; }
 input[type="checkbox"] { transform: scale(1.8); margin-left: 10px; accent-color: #007aff; }
 
 /* =========================================
