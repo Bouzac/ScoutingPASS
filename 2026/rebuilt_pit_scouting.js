@@ -68,15 +68,14 @@ var config_data = `
       "size": 20,
       "maxSize": 250
     },
-    {
-      "name": "Accrochage",
+    { "name": "Accrochage",
       "code": "clb",
-      "type": "Radio",
+      "type": "radio",
       "choices": {
           "1": "L1<br>",
           "2": "L2<br>",
           "3": "L3<br>",
-          "o": "Aucun"
+          "x": "Aucun"
       }
     },
     { "name": "Commentaires",
