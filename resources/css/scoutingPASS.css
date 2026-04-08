@@ -61,7 +61,7 @@ h2 { font-family: 'Alexis', sans-serif; font-size: 2.5dvh; font-weight: 300; mar
 .content-container {
     flex: 1 0 auto;
     padding: 3dvh 2vw;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 table {
@@ -90,16 +90,27 @@ tr {
 
 .phase-prematch tr { background: rgba(255, 255, 255, 0.05); }
 
-.field-image-src {
-    border-radius: 12px;
-    border: 2px solid rgba(0,0,0,0.2);
+.field-image {
+    position: relative;
     display: block;
-    margin: 1.5dvh auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 2dvh auto 15dvh auto;
+    transform: scale(1.5);
+    transform-origin: top center;
     pointer-events: auto !important;
     touch-action: auto !important; 
     -webkit-user-select: auto !important;
     user-select: auto !important;
+}
+
+.field-image-src {
+    border-radius: 8px;
+    border: 2px solid rgba(0,0,0,0.2);
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     -webkit-touch-callout: none;
 }
 
