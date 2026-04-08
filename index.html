@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Scouting PASS</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
@@ -99,20 +99,17 @@
                             qr = new QRCode(document.getElementById("qrcode"), options)
                         </script>
                     </div>
-                    <p id="data" style="display: none;"></p> </div>
-
-                <div class="footer-bar tools">
+                    <p id="data" style="display: none;"></p>
+                </div>
+                
+                <div class="footer-bar split final-actions">
                     <button type="button" class="nav-btn secondary" id="prevButton9" onclick="swipePage(-1)">&larr; Retour</button>
                     <div class="action-buttons">
                         <button type="button" class="tool-btn" id="displayButton" onclick="displayData()">Données</button>
                         <button type="button" class="tool-btn" id="copyButton" onclick="copyData()">Copier</button>
-                        <button type="button" class="tool-btn" id="downloadQRButton" onclick="downloadQR()">Télécharger QR</button>
+                        <button type="button" class="tool-btn danger-btn clearForm" onclick="clearForm()">Effacer</button>
                     </div>
-                </div>
-                
-                <div class="footer-bar final-actions">
-                    <button type="button" class="danger-btn clearForm" onclick="clearForm()">Effacer le Formulaire</button>
-                    <button id="submit" type="submit" class="submit-btn submitForm">Envoyer Google Sheets</button>
+                    <button id="submit" type="submit" class="submit-btn submitForm">Envoyer</button>
                 </div>
             </div>
         </div>
