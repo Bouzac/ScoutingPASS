@@ -1,98 +1,125 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
-		<title>Scouting PASS</title>
-		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
-		<script src="resources/js/easy.qrcode.min.js"></script>
-		<script src="resources/js/TBAInterface.js"></script>
-		<script src="resources/js/googleSheets.js"></script>
-		<script src="resources/js/scoutingPASS.js"></script>
-		<script src="2026/rebuilt_config.js"></script>
-		<link rel="stylesheet" href="resources/css/scoutingPASS.css">
-	</head>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Scouting PASS</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+    <script src="resources/js/easy.qrcode.min.js"></script>
+    <script src="resources/js/TBAInterface.js"></script>
+    <script src="resources/js/googleSheets.js"></script>
+    <script src="resources/js/scoutingPASS.js"></script>
+    <script src="2026/rebuilt_config.js"></script>
+    <link rel="stylesheet" href="resources/css/scoutingPASS.css">
+</head>
+<body>
+    <form id="scoutingForm" onsubmit="return false" name="scoutingForm">
+        <div id="main-panel-holder">
+            
+            <div id="prematch" class="main-panel phase-prematch">
+                <div class="header-bar">
+                    <h1 id="prematchHeader1"><span class="odd">P</span><span class="even">W</span><span class="odd">N</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span></h1>
+                    <h2 id="prematchHeader2">Pré-match</h2>
+                </div>
+                <div class="content-container">
+                    <table id="prematch_table"></table>
+                </div>
+                <div class="footer-bar">
+                    <button type="button" class="nav-btn primary" id="nextButton2" onclick="swipePage(1)">Suivant &rarr;</button>
+                </div>
+            </div>
 
-	<body>
-		<form id="scoutingForm" onsubmit="return false" name="scoutingForm">
-			<div id="main-panel-holder">
-				
-				<div id="prematch" class="main-panel" style="background-color: black;">
-					<h1 id="prematchHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">N</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting PASS</h1>
-					<h2 id="prematchHeader2">Pré-match</h2>
-					<table id="prematch_table" style="font-family: Roboto">
-					</table>
-					<p class="match-label"><input type="button" value="Suivant" id="nextButton2" onclick="swipePage(1)"></p>
-				</div>
+            <div id="auton" class="main-panel phase-auton">
+                <div class="header-bar">
+                    <h1 id="autonHeader1"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span></h1>
+                    <h2 id="autonHeader2">Autonome</h2>
+                </div>
+                <div class="content-container">
+                    <table id="auton_table"></table>
+                </div>
+                <div class="footer-bar split">
+                    <button type="button" class="nav-btn secondary" id="prevButton2" onclick="swipePage(-1)">&larr; Précédent</button>
+                    <button type="button" class="nav-btn primary" id="nextButton4" onclick="swipePage(1)">Suivant &rarr;</button>
+                </div>
+            </div>
 
-				<div id="auton" class="main-panel" style="background-color: rgb(123, 168, 184);">
-					<h1 id="autonHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting PASS</h1>
-					<h2 id="autonHeader2">Autonome</h2>
-					<table id="auton_table">
-					</table>
-					<p class="match-label"><input type="button" value="Précédent" id="prevButton2" onclick="swipePage(-1)"> <input type="button" value="Suivant" id="nextButton4" onclick="swipePage(1)"></p>
-				</div>
+            <div id="teleop" class="main-panel phase-teleop">
+                <div class="header-bar">
+                    <h1 id="teleopHeader1"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span></h1>
+                    <h2 id="teleopHeader2">Téléopéré</h2>
+                </div>
+                <div class="content-container">
+                    <table id="teleop_table"></table>
+                </div>
+                <div class="footer-bar split">
+                    <button type="button" class="nav-btn secondary" id="prevButton4" onclick="swipePage(-1)">&larr; Précédent</button>
+                    <button type="button" class="nav-btn primary" id="nextButton6" onclick="swipePage(1)">Suivant &rarr;</button>
+                </div>
+            </div>
 
-				<div id="teleop" class="main-panel" style="background-color: rgb(175, 207, 163);">
-					<h1 id="teleopHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting PASS</h1>
-					<h2 id="teleopHeader2" >Téléopéré</h2>
-					<table id="teleop_table">
-					</table>
-					<p class="match-label"><input type="button" value="Précédent" id="prevButton4" onclick="swipePage(-1)"> <input type="button" value="Suivant" id="nextButton6" onclick="swipePage(1)"></p>
-				</div>
+            <div id="endgame" class="main-panel phase-endgame">
+                <div class="header-bar">
+                    <h1 id="endgameHeader1"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span></h1>
+                    <h2 id="endgameHeader2">Fin de jeu</h2>
+                </div>
+                <div class="content-container">
+                    <table id="endgame_table"></table>
+                </div>
+                <div class="footer-bar split">
+                    <button type="button" class="nav-btn secondary" id="prevButton6" onclick="swipePage(-1)">&larr; Précédent</button>
+                    <button type="button" class="nav-btn primary" id="nextButton8" onclick="swipePage(1)">Suivant &rarr;</button>
+                </div>
+            </div>
 
-				<div id="endgame" class="main-panel" style="background-color: rgb(198, 186, 222);">
-					<h1 id="endgameHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting PASS</h1>
-					<h2 id="endgameHeader2">Fin de jeu</h2>
-					<table id="endgame_table">
-					</table>
-					<p class="match-label"><input type="button" value="Précédent" id="prevButton6" onclick="swipePage(-1)"> <input type="button" value="Suivant" id="nextButton8" onclick="swipePage(1)"></p>
-				</div>
+            <div id="post-match" class="main-panel phase-postmatch">
+                <div class="header-bar">
+                    <h1 id="postmatchHeader"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span></h1>
+                    <h2>Divers</h2>
+                </div>
+                <div class="content-container">
+                    <table id="postmatch_table"></table>
+                </div>
+                <div class="footer-bar split">
+                    <button type="button" class="nav-btn secondary" id="prevButton8" onclick="swipePage(-1)">&larr; Précédent</button>
+                    <button type="button" class="nav-btn primary" id="nextButton10" onclick="swipePage(1)">Aller au QR &rarr;</button>
+                </div>
+            </div>
 
-				<div id="post-match" class="main-panel" style="background-color: rgb(89, 134, 168);">
-					<h1 id="postmatchHeader" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting PASS</h1>
-					<h2>Divers</h2>
-					<table id="postmatch_table">
-					</table>
-					<p class="match-label"><input type="button" value="Précédent" id="prevButton8" onclick="swipePage(-1)"> <input type="button" value="Suivant" id="nextButton10" onclick="swipePage(1)"></p>
-				</div>
+            <div id="qr-code" class="main-panel phase-qr">
+                <div class="header-bar">
+                    <h1 id="qrHeader1"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span> 2026</h1>
+                    <h2 id="qrHeader2">Générer Code QR</h2>
+                </div>
+                
+                <div class="content-container qr-container">
+                    <p id="qr-info"><span id="display_qr-info"></span></p>
+                    <div id="qrcode">
+                        <script>
+                            qr = new QRCode(document.getElementById("qrcode"), options)
+                        </script>
+                    </div>
+                    <p id="data" style="display: none;"></p> </div>
 
-				<div id="qr-code" class="main-panel" style="background-color: white;">
-					<h1 id="qrHeader1" class="page_title"><span class="odd">P</span><span class="even">W</span><span class="odd">n</span><span class="even">A</span><span class="odd">G</span><span class="even">E</span><br>Scouting 2026</h1>
-					<h2 id="qrHeader2">Générer Code QR</h2>
-					<p class="match-label"><input type="button" value="Précédent" id="prevButton9" onclick="swipePage(-1)"></p>
-					<p id="qr-info"><span id="display_qr-info" style="border: none; text-align: center;"></span></p>
-					<script>
-    					window.goatcounter = { path: function(p) { return location.host + p }}
-					</script>
-					<script data-goatcounter="https://scoutingpass.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-					<table id="qr-table"><tr><td width="5%">&nbsp;</td><td width="90%">
-						<div id="qrcode" style="text-align:center">
-							<script>
-								qr = new QRCode(document.getElementById("qrcode"), options)
-							</script>
-						</div>
-					</td><td width="5%">&nbsp;</td></tr>
-					<tr><td width="5%">&nbsp;</td><td width="90%">
-						<div>
-							<p id="data" style="text-align:center"></p>
-						</div>
-					</td><td width="5%">&nbsp;</td></tr>
-					</table>
-					<p class="match-label">
-					    <input type="button" value="Afficher Données" id="displayButton" onclick="displayData()">
-					    <input type="button" value="Copier Données" id="copyButton" onclick="copyData()">
-					    <input type="button" value="Télécharger QR" id="downloadQRButton" onclick="downloadQR()">
-					</p>
-					<div id="submitButton" style="text-align: center;">
-						<button id="submit" type="submit" class="submitForm">Envoyer Google Sheets</button>
-					</div>
-					<div id="clearButton" style="text-align: center;">
-						<button type="button" class="clearForm" onclick="clearForm()">Effacer le Formulaire</button>
-					</div>
-					<br>
-				</div>
-			</div>
-		</form>
-	</body>
+                <div class="footer-bar tools">
+                    <button type="button" class="nav-btn secondary" id="prevButton9" onclick="swipePage(-1)">&larr; Retour</button>
+                    <div class="action-buttons">
+                        <button type="button" class="tool-btn" id="displayButton" onclick="displayData()">Données</button>
+                        <button type="button" class="tool-btn" id="copyButton" onclick="copyData()">Copier</button>
+                        <button type="button" class="tool-btn" id="downloadQRButton" onclick="downloadQR()">Télécharger QR</button>
+                    </div>
+                </div>
+                
+                <div class="footer-bar final-actions">
+                    <button type="button" class="danger-btn clearForm" onclick="clearForm()">Effacer le Formulaire</button>
+                    <button id="submit" type="submit" class="submit-btn submitForm">Envoyer Google Sheets</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        window.goatcounter = { path: function(p) { return location.host + p }}
+    </script>
+    <script data-goatcounter="https://scoutingpass.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
 </html>
